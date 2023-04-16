@@ -3,8 +3,9 @@
  */
 module.exports = {
 	siteMetadata: {
-		title: `gatsby-gallery-slideshow`,
-		siteUrl: `https://www.yourdomain.tld`,
+		title: `The greatest painters`,
+		author: 'Tomasz Kuncio',
+		description: 'Your virtual gallery, a place where all greatest paintings can be found.'
 	},
 	plugins: [
 		'gatsby-plugin-google-gtag',
@@ -38,7 +39,7 @@ module.exports = {
 			resolve: 'gatsby-plugin-web-font-loader',
 			options: {
 				google: {
-					families: ['Libre Baskerville'],
+					families: ['Libre Baskerville', 'Kalam'],
 				},
 			},
 		},
