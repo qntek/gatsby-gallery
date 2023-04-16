@@ -5,7 +5,12 @@ module.exports = {
     "./src/components/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'hero-background': '#0000006b',
+        'hero-hover': '#00000025',
+      }
+    },
   },
   plugins: [],
 }

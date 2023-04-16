@@ -1,15 +1,22 @@
-import React from 'react'
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import React from 'react';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-const Thumbnail = ({image, picName, artistName}) => {
-  console.log(image);
-  return (
-    <div className='relative'>
-      <GatsbyImage image={getImage(image)} alt={picName} />
-      <p>{picName}</p>
-      <p>{artistName}</p>
-    </div>
-  )
-}
+const Thumbnail = ({ image, picName, artistName }) => {
+	console.log(image);
+	return (
+		<div className='relative'>
+			<GatsbyImage
+				className='z-0 w-full'
+				image={getImage(image)}
+				alt={picName}
+			/>
+			<div className='absolute z-10 bottom-0 left-0 w-full h-full bg-hero-background hover:bg-hero-hover active:bg-hero-hover ease-linear duration-200'></div>
+			<div className='absolute bottom-8 left-6 z-20'>
+				<p className='text-3xl font-bold text-white'>{picName}</p>
+				<p className='text-2x1 font-bold text-neutral-400'>{artistName}</p>
+			</div>
+		</div>
+	);
+};
 
-export default Thumbnail
+export default Thumbnail;
