@@ -19,10 +19,10 @@ export default function Footer() {
 	);
 	return (
 		<footer className='h-35 pb-4 absolute bottom-0 left-0 right-0'>
-			<div className='flex justify-between content-center border-t border-stone-300 pt-3 px-6'>
+			<div className='flex justify-between content-center  border-t border-stone-300 pt-3 px-6'>
 				<a
 					className='inline-block'
-					href='https://github.com/qntek/country-flag-api'
+					href='https://github.com/qntek/gatsby-gallery'
 					target='_blank'
 					rel='noreferrer'>
 					{githubIcon}

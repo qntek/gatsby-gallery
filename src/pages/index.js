@@ -12,6 +12,7 @@ const IndexPage = ({ data }) => {
 		.map((node) => {
 			return (
 				<Thumbnail
+					onClick={() => setIsSlideShow(true)}
 					image={node.images.gallery.childImageSharp.gatsbyImageData}
 					picName={node.name}
 					artistName={node.artist.name}
