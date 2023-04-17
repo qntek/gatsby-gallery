@@ -7,7 +7,7 @@ import Header from '../components/Header';
 const Picture = ({data}) => {
   console.log(data);
   return (
-    <><Header /></>
+    <><Header isSlideShow={true} /></>
   )
 }
 

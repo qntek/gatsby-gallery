@@ -1,4 +1,5 @@
 import * as React from 'react';
+import slugify from 'slugify';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { graphql } from 'gatsby';
@@ -6,17 +7,17 @@ import Thumbnail from '../components/Thumbnail';
 import '../styles/index.css';
 
 const IndexPage = ({ data }) => {
-	const [isSlideShow, setIsSlideShow] = React.useState(false);
 
 	const thumbnails = data.allDataJson.nodes
-		.map((node) => {
+		.map((node, index) => {
 			return (
 				<Thumbnail
-					onClick={() => setIsSlideShow(true)}
 					image={node.images.gallery.childImageSharp.gatsbyImageData}
 					picName={node.name}
 					artistName={node.artist.name}
 					key={node.id}
+					inx = {index}
+					total = {data.allDataJson.nodes.length}
 				/>
 			);
 		})
@@ -38,7 +39,7 @@ const IndexPage = ({ data }) => {
 		lastThumbnail = thumbnails.pop();
 	}
 	const thumbnailsToDisplay = (
-		<div className='grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4 w-full p-4 lg:p-9 lg:container lg:mx-auto animate-appear'>
+		<div className='grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4 w-full p-4 xl:p-9 xl:container xl:mx-auto animate-appear'>
 			<div className='flex flex-col gap-6 mx-auto'>{thumbnailsColumnOne}</div>
 			<div className='flex flex-col gap-6 mx-auto'>{thumbnailsColumnTwo}</div>
 			<div className='flex flex-col gap-6 mx-auto'>{thumbnailsColumnThree}</div>
@@ -47,7 +48,7 @@ const IndexPage = ({ data }) => {
 	);
 	return (
 		<div className='relative pb-12'>
-			<Header isSlideShow={isSlideShow} setIsSlideShow={setIsSlideShow} />
+			<Header isSlideShow={false} linkTo={slugify(`/${data.allDataJson.nodes[0].name}`, {lower: true})} />
 			{thumbnailsToDisplay}
 			<Footer />
 		</div>
