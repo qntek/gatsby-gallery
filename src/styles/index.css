@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 body {
-  font-family: 'Libre Baskerville', serif;
+  font-family: "Libre Baskerville", serif;
 }
 
 footer {
-  font-family: 'Kalam', Times, serif;
+  font-family: "Kalam", Times, serif;
 }

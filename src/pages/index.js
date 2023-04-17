@@ -7,17 +7,14 @@ import Thumbnail from '../components/Thumbnail';
 import '../styles/index.css';
 
 const IndexPage = ({ data }) => {
-
 	const thumbnails = data.allDataJson.nodes
-		.map((node, index) => {
+		.map((node) => {
 			return (
 				<Thumbnail
 					image={node.images.gallery.childImageSharp.gatsbyImageData}
 					picName={node.name}
 					artistName={node.artist.name}
 					key={node.id}
-					inx = {index}
-					total = {data.allDataJson.nodes.length}
 				/>
 			);
 		})
@@ -48,7 +45,10 @@ const IndexPage = ({ data }) => {
 	);
 	return (
 		<div className='relative pb-12'>
-			<Header isSlideShow={false} linkTo={slugify(`/${data.allDataJson.nodes[0].name}`, {lower: true})} />
+			<Header
+				isSlideShow={false}
+				linkTo={slugify(`/${data.allDataJson.nodes[0].name}`, { lower: true })}
+			/>
 			{thumbnailsToDisplay}
 			<Footer />
 		</div>
