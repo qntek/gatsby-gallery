@@ -8,11 +8,13 @@ const Picture = ({ data }) => {
 	return (
 		<>
 			<Header isSlideShow={true} />
-			<main className='mt-5 grid grid-cols-1 lg:container md:mt-12 lg:mx-auto lg:grid-cols-2'>
-				<div className='relative mb-10'>
-					<div className='z-10 ml-8 bg-white p-5 tracking-wide md:absolute md:left-1/2 md:top-0 md:ml-0 lg:left-2/3'>
-						<p className='text-5xl  font-bold'>{data.dataJson.name}</p>
-						<p className='mt-2 text-stone-500'>{data.dataJson.artist.name}</p>
+			<main className='mt-5 grid grid-cols-1 gap-10 lg:container md:mt-12 lg:mx-auto lg:grid-cols-2'>
+				<div className='relative'>
+					<div className='z-10 bg-white p-5 tracking-wide md:absolute md:left-2/3 md:top-0 md:ml-0 lg:left-2/3'>
+						<p className='text-4xl lg:text-2xl xl:text-5xl font-bold'>{data.dataJson.name}</p>
+						<p className='mt-2 text-sm font-bold text-stone-500 md:text-base'>
+							{data.dataJson.artist.name}
+						</p>
 					</div>
 					<div className='relative w-full'>
 						<GatsbyImage
@@ -21,10 +23,10 @@ const Picture = ({ data }) => {
 									.gatsbyImageData
 							)}
 							alt={data.dataJson.name}
-							className='mx-8 md:mx-16'
+							className='mx-6 md:mx-16'
 						/>
-						<button className='absolute bottom-5 flex flex-row items-center left-0 ml-10 appearance-none rounded-sm bg-hero-background px-4 py-2 text-white transition-colors hover:bg-hero-hover focus:outline-none md:ml-24 text-xs tracking-wide'>
-							<img src={viewFullIcon} className='mr-3'/> VIEW FULL
+						<button className='absolute bottom-5 left-0 ml-10 flex appearance-none flex-row items-center rounded-sm bg-hero-background px-4 py-2 text-xs tracking-wide text-white transition-colors hover:bg-hero-hover focus:outline-none md:ml-24'>
+							<img src={viewFullIcon} className='mr-3' /> VIEW FULL
 						</button>
 					</div>
 
@@ -34,11 +36,24 @@ const Picture = ({ data }) => {
 								data.dataJson.artist.image.childrenImageSharp[0].gatsbyImageData
 							)}
 							alt={data.dataJson.artist.name}
-							className='w-20 sm:w-28 md:h-48 md:w-48 lg:h-36 lg:w-36'
+							className='w-20 sm:w-28 md:h-48 md:w-48 lg:h-32 lg:w-32 xl:h-36 xl:w-36'
 						/>
 					</div>
 				</div>
-				<div className='relative bg-slate-600'></div>
+				<div className='relative mx-8 text-justify text-stone-500 md:mx-16'>
+					<p className=' select-none text-right text-9xl text-slate-200 sm:text-18xl md:text-12xl lg:text-9xl xl:text-18xl'>
+						{data.dataJson.year}
+					</p>
+					<div className='absolute left-0 right-0 top-20 indent-5 text-sm font-bold leading-6 sm:top-44 md:top-40 lg:top-24 md:text-base lg:leading-8 xl:top-44'>
+						<p>{data.dataJson.description}</p>
+
+						<a href={data.dataJson.source}>
+							<p className='mt-8 indent-0 text-xs tracking-widest underline'>
+								GO TO SOURCE
+							</p>
+						</a>
+					</div>
+				</div>
 			</main>
 		</>
 	);
@@ -55,11 +70,7 @@ export const query = graphql`
 				hero {
 					large {
 						childrenImageSharp {
-							gatsbyImageData(
-								placeholder: BLURRED
-								layout: FULL_WIDTH
-								
-							)
+							gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
 						}
 					}
 				}

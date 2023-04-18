@@ -19,6 +19,18 @@ module.exports = {
 			animation: {
 				appear: 'appear 1500ms ease-in-out forwards',
 			},
+			fontSize: {
+				'12xl': ['12rem', {
+					lineHeight: '13rem',
+					letterSpacing: '0.03em',
+					fontWeight: '500',
+				}],
+				'18xl': ['14rem', {
+					lineHeight: '15rem',
+					letterSpacing: '0.04em',
+					fontWeight: '500',
+				}],
+			}
 		},
 	},
 	plugins: [],
