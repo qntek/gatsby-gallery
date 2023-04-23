@@ -9,3 +9,14 @@ body {
 footer {
   font-family: "Kalam", Times, serif;
 }
+
+.modal-box {
+  z-index: 2222;
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
+}
+
+div .moda-box div picture img {
+  object-fit: contain !important;
+}
