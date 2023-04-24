@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import Header from '../components/Header';
@@ -11,7 +11,7 @@ const customStyles = {
 		left: '0',
 		width: '100vw',
 		height: '100vh',
-		backgroundColor: 'gray',
+		backgroundColor: 'rgba(0, 0, 0, 0.8)',
 		zIndex: '11',
 		display: 'flex',
 		justifyContent: 'center',
@@ -22,6 +22,8 @@ Modal.setAppElement('#___gatsby');
 
 const Picture = ({ data }) => {
 	const [modalIsOpen, setIsOpen] = useState(false);
+	const modalBox = useRef(null);
+
 	function openModal() {
 		setIsOpen(true);
 	}
@@ -30,6 +32,12 @@ const Picture = ({ data }) => {
 		setIsOpen(false);
 	}
 
+	useEffect(() => {
+		if (modalIsOpen) {
+			const element = modalBox.current.node;
+			console.log(element)
+		}
+	}, [modalIsOpen]);
 	return (
 		<>
 			<Header isSlideShow={true} />
@@ -38,16 +46,22 @@ const Picture = ({ data }) => {
 					isOpen={modalIsOpen}
 					onRequestClose={closeModal}
 					style={customStyles}
-					contentLabel='Example Modal'>
-					<div className='z-50 h-2/3'>
+					contentLabel='Example Modal'
+					ref={modalBox}>
+					<div className='relative z-50 h-3/4'>
 						<GatsbyImage
 							image={getImage(
 								data.dataJson.images.hero.large.childrenImageSharp[0]
 									.gatsbyImageData
 							)}
 							alt={data.dataJson.name}
-							className='modal-box my-5'
+							className='modal-box flex flex-row justify-center'
 						/>
+						<button
+							onClick={closeModal}
+							className='absolute -top-8 right-0 tracking-widest text-white transition-transform hover:text-lg'>
+							CLOSE
+						</button>
 					</div>
 				</Modal>
 				<div className='relative z-0'>
@@ -116,7 +130,7 @@ export const query = graphql`
 					large {
 						childrenImageSharp {
 							gatsbyImageData(
-								transformOptions: { fit: CONTAIN}
+								transformOptions: { fit: CONTAIN }
 								placeholder: BLURRED
 								layout: CONSTRAINED
 							)

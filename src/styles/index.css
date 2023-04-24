@@ -3,20 +3,18 @@
 @tailwind utilities;
 
 body {
-  font-family: "Libre Baskerville", serif;
+	font-family: 'Libre Baskerville', serif;
 }
 
 footer {
-  font-family: "Kalam", Times, serif;
+	font-family: 'Kalam', Times, serif;
 }
 
 .modal-box {
-  z-index: 2222;
-  background-color: #fff;
-  height: 100%;
-  width: 100%;
+	background-color: transparent;
+	height: 100%;
 }
 
-div .moda-box div picture img {
-  object-fit: contain !important;
+.modal-box img {
+	object-fit: contain !important;
 }
