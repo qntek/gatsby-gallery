@@ -33,11 +33,21 @@ const Picture = ({ data }) => {
 	}
 
 	useEffect(() => {
+		let element
+		const listener = (e) => {
+			if (e.target.nodeName !== 'IMG') closeModal();
+		};
 		if (modalIsOpen) {
-			const element = modalBox.current.node;
-			console.log(element)
+			element = modalBox.current.node;
+			element.addEventListener('click', listener);
 		}
+		return () => {
+			if (element) {
+				element.removeEventListener('click', listener);
+			}
+		};
 	}, [modalIsOpen]);
+
 	return (
 		<>
 			<Header isSlideShow={true} />
