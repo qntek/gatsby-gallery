@@ -4,6 +4,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import Header from '../components/Header';
 import viewFullIcon from '../assets/images/icons/icon-view-image.svg';
 import ModalSinglePicture from '../components/ModalSinglePicture';
+import NavigationPanel from '../components/NavigationPanel';
 
 const Picture = ({ data }) => {
 	const [modalIsOpen, setIsOpen] = useState(false);
@@ -17,9 +18,9 @@ const Picture = ({ data }) => {
 	}
 
 	return (
-		<>
+		<div className='min-h-screen'>
 			<Header isSlideShow={true} />
-			<main className='mt-5 grid grid-cols-1 gap-10 lg:container md:mt-12 lg:mx-auto lg:grid-cols-2'>
+			<main className='mt-5 grid grid-cols-1 gap-10 md:mt-12 xl:mx-auto lg:grid-cols-2 max-w-6xl xl:max-w-7xl'>
 				<ModalSinglePicture
 					modalIsOpen={modalIsOpen}
 					closeModal={closeModal}
@@ -38,19 +39,19 @@ const Picture = ({ data }) => {
 							{data.dataJson.artist.name}
 						</p>
 					</div>
-					<div className='relative w-full'>
+					<div className='relative max-h-fit w-full'>
 						<GatsbyImage
 							image={getImage(
 								data.dataJson.images.hero.large.childrenImageSharp[0]
 									.gatsbyImageData
 							)}
 							alt={data.dataJson.name}
-							className='mx-6 md:mx-16'
+							className='mx-6 2xl:mx-0'
 						/>
 						<button
 							onClick={openModal}
 							className='absolute bottom-5 left-0 ml-10 flex appearance-none flex-row items-center rounded-sm bg-hero-background px-4 py-2 text-xs tracking-wide text-white transition-colors hover:bg-hero-hover focus:outline-none md:ml-24'>
-							<img src={viewFullIcon} className='mr-3' alt=''/> VIEW FULL
+							<img src={viewFullIcon} className='mr-3' alt='' /> VIEW FULL
 						</button>
 					</div>
 
@@ -64,13 +65,12 @@ const Picture = ({ data }) => {
 						/>
 					</div>
 				</div>
-				<div className='relative mx-8 text-justify text-stone-500 md:mx-16'>
-					<p className=' select-none text-right text-9xl text-slate-200 sm:text-18xl md:text-12xl lg:text-9xl xl:text-18xl'>
+				<div className='relative mx-8 text-justify text-stone-500'>
+					<p className='select-none text-right text-9xl text-slate-100 sm:text-18xl md:text-12xl lg:text-9xl xl:text-18xl'>
 						{data.dataJson.year}
 					</p>
-					<div className='absolute left-0 right-0 top-20 indent-5 text-sm font-bold leading-6 sm:top-44 md:top-40 md:text-base lg:top-24 lg:leading-8 xl:top-44'>
+					<div className='-mt-10 indent-5 text-sm font-bold leading-6 sm:-mt-16 md:text-base lg:-mt-10 lg:leading-8 xl:-mt-16'>
 						<p>{data.dataJson.description}</p>
-
 						<a href={data.dataJson.source}>
 							<p className='mt-8 indent-0 text-xs tracking-widest underline'>
 								GO TO SOURCE
@@ -79,7 +79,8 @@ const Picture = ({ data }) => {
 					</div>
 				</div>
 			</main>
-		</>
+			<NavigationPanel id={data.dataJson.id} />
+		</div>
 	);
 };
 

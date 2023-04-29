@@ -6,7 +6,7 @@ const Header = ({ isSlideShow, linkTo }) => {
   linkTo ? (linkTo = linkTo) : (linkTo = "/");
   return (
     <header className="p-4 lg:p-9 border-b border-stone-300">
-      <div className="flex flex-row justify-between items-center lg:container lg:mx-auto">
+      <div className="flex flex-row justify-between items-center max-w-7xl lg:mx-auto">
         <Link to="/">
           <img src={galleryLogo} alt="Gallery Logo" />
         </Link>
