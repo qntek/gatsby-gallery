@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { graphql } from 'gatsby';
 import Thumbnail from '../components/Thumbnail';
+import SEO from '../components/Seo';
 import '../styles/index.css';
 
 const IndexPage = ({ data }) => {
@@ -78,4 +79,4 @@ export const query = graphql`
 
 export default IndexPage;
 
-export const Head = () => <title>Home Page</title>;
+export const Head = () => <SEO/>;

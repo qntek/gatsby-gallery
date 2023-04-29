@@ -5,7 +5,7 @@ import Header from '../components/Header';
 import viewFullIcon from '../assets/images/icons/icon-view-image.svg';
 import ModalSinglePicture from '../components/ModalSinglePicture';
 import NavigationPanel from '../components/NavigationPanel';
-
+import SEO from '../components/Seo';
 
 const Picture = ({ data }) => {
 	const [modalIsOpen, setIsOpen] = useState(false);
@@ -21,7 +21,7 @@ const Picture = ({ data }) => {
 	return (
 		<div className='min-h-screen'>
 			<Header isSlideShow={true} />
-			<main className='mt-5 grid grid-cols-1 gap-10 md:mt-12 xl:mx-auto lg:grid-cols-2 max-w-6xl xl:max-w-7xl'>
+			<main className='mt-5 grid max-w-6xl grid-cols-1 gap-10 md:mt-12 lg:grid-cols-2 xl:mx-auto xl:max-w-7xl'>
 				<ModalSinglePicture
 					modalIsOpen={modalIsOpen}
 					closeModal={closeModal}
@@ -130,3 +130,7 @@ export const query = graphql`
 `;
 
 export default Picture;
+
+export const Head = ({data}) => (
+	<SEO title={data.dataJson.name} description={data.dataJson.description} />
+);

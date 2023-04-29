@@ -3,7 +3,7 @@
  */
 module.exports = {
 	siteMetadata: {
-		title: `The greatest painters`,
+		title: `The greatest pictures`,
 		author: 'Tomasz Kuncio',
 		description: 'Your virtual gallery, a place where all greatest paintings can be found.',
 		siteUrl: 'https://qntek.github.io/gatsby-gallery/',
