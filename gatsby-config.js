@@ -5,10 +5,12 @@ module.exports = {
 	siteMetadata: {
 		title: `The greatest painters`,
 		author: 'Tomasz Kuncio',
-		description: 'Your virtual gallery, a place where all greatest paintings can be found.'
+		description: 'Your virtual gallery, a place where all greatest paintings can be found.',
+		siteUrl: 'https://qntek.github.io/gatsby-gallery/',
 	},
+	 pathPrefix: "/gatsby-gallery",
 	plugins: [
-		'gatsby-plugin-google-gtag',
+		
 		'gatsby-plugin-image',
 		'gatsby-plugin-sitemap',
 		'gatsby-plugin-postcss',
