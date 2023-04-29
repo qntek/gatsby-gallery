@@ -1,33 +1,11 @@
-import * as React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import { Link } from 'gatsby';
-
-const pageStyles = {
-	color: '#232129',
-	padding: '96px',
-	fontFamily: '-apple-system, Roboto, sans-serif, serif',
-};
-const headingStyles = {
-	marginTop: 0,
-	marginBottom: 64,
-	maxWidth: 320,
-};
-
-const paragraphStyles = {
-	marginBottom: 48,
-};
-const codeStyles = {
-	color: '#8A6534',
-	padding: 4,
-	backgroundColor: '#FFF4DB',
-	fontSize: '1.25rem',
-	borderRadius: 4,
-};
-
+import * as React from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import SEO from "../components/Seo";
+import '../styles/index.css';
 const NotFoundPage = () => {
-	return (
-		<main className='fixed bottom-0 left-0 right-0 top-0'>
+  return (
+<main className='fixed bottom-0 left-0 right-0 top-0'>
 			<Header />
 			<div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center'>
 				<p className='text-5xl font-bold md:text-6xl xl:text-7xl'>404 🗯️</p>
@@ -37,9 +15,9 @@ const NotFoundPage = () => {
 			</div>
 			<Footer />
 		</main>
-	);
+  );
 };
 
 export default NotFoundPage;
 
-export const Head = () => <title>Not found</title>;
+export const Head = () => <SEO title="404: Not found" />;
