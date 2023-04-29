@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	font-family: 'Libre Baskerville', serif;
+}
+
+footer {
+	font-family: 'Kalam', Times, serif;
+}
+
+.modal-box {
+	background-color: transparent;
+	height: 100%;
+}
+
+.modal-box img {
+	object-fit: contain !important;
+}
