@@ -36,7 +36,7 @@ const IndexPage = ({ data }) => {
 		lastThumbnail = thumbnails.pop();
 	}
 	const thumbnailsToDisplay = (
-		<div className='grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4 w-full p-4 xl:p-9 xl:container xl:mx-auto animate-appear'>
+		<div className='grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4 w-full p-4 xl:p-9 max-w-7xl xl:mx-auto animate-appear'>
 			<div className='flex flex-col gap-6 mx-auto'>{thumbnailsColumnOne}</div>
 			<div className='flex flex-col gap-6 mx-auto'>{thumbnailsColumnTwo}</div>
 			<div className='flex flex-col gap-6 mx-auto'>{thumbnailsColumnThree}</div>

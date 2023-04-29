@@ -50,7 +50,7 @@ const Picture = ({ data }) => {
 						/>
 						<button
 							onClick={openModal}
-							className='absolute bottom-5 left-0 ml-10 flex appearance-none flex-row items-center rounded-sm bg-hero-background px-4 py-2 text-xs tracking-wide text-white transition-colors hover:bg-hero-hover focus:outline-none md:ml-24'>
+							className='absolute bottom-5 left-0 ml-10 flex appearance-none flex-row items-center rounded-sm bg-hero-background px-4 py-2 text-xs tracking-wide text-white transition-colors hover:bg-hero-hover focus:outline-none'>
 							<img src={viewFullIcon} className='mr-3' alt='' /> VIEW FULL
 						</button>
 					</div>
