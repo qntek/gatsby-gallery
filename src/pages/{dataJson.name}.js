@@ -6,6 +6,7 @@ import viewFullIcon from '../assets/images/icons/icon-view-image.svg';
 import ModalSinglePicture from '../components/ModalSinglePicture';
 import NavigationPanel from '../components/NavigationPanel';
 
+
 const Picture = ({ data }) => {
 	const [modalIsOpen, setIsOpen] = useState(false);
 

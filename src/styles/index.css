@@ -18,3 +18,25 @@ footer {
 .modal-box img {
 	object-fit: contain !important;
 }
+
+progress::-webkit-progress-value {
+  background-color: black;
+}
+
+progress::-moz-progress-bar {
+  background-color: black;
+}
+
+progress::-ms-fill {
+  background-color: black;
+}
+ 
+progress::-webkit-progress-bar {
+  background-color: rgb(240, 234, 234);
+}
+
+
+
+
+
+

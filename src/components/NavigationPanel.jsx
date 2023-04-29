@@ -2,6 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Link } from 'gatsby';
 import slugify from 'slugify';
+import ProgressBar from '../components/ProgressBar';
 import iconBack from '../assets/images/icons/icon-back-button.svg';
 import iconNext from '../assets/images/icons/icon-next-button.svg';
 
@@ -45,22 +46,25 @@ function NavigationPanel({ id }) {
 	}
 
 	return (
-		<div className='mx-5 my-5 flex max-w-7xl flex-row items-center justify-between md:mx-8 lg:my-10 xl:mx-auto xl:mt-16'>
-			<div className='xl:mx-5'>
-				<p className='lg:text-large text-base font-bold'>{picture}</p>
-				<p className='text-sm text-stone-500 lg:text-base'>{artist}</p>
-			</div>
-			<div className='flex flex-row  xl:mx-5'>
-				<Link to={`/${slugify(prevImgPath, { lower: true })}`}>
-					<img
-						src={iconBack}
-						alt='previous'
-						className='mr-5 h-8 w-8 cursor-pointer'
-					/>
-				</Link>
-				<Link to={`/${slugify(nextImgPath, { lower: true })}`}>
-					<img src={iconNext} alt='next' className='h-8 w-8 cursor-pointer' />
-				</Link>
+		<div className='mx-5 my-5 max-w-7xl md:mx-8 lg:my-10 xl:mx-auto xl:mt-16'>
+			<ProgressBar id={id} />
+			<div className='mt-5 flex max-w-7xl flex-row items-center justify-between xl:mx-auto '>
+				<div className='xl:mx-5'>
+					<p className='lg:text-large text-base font-bold'>{picture}</p>
+					<p className='text-sm text-stone-500 lg:text-base'>{artist}</p>
+				</div>
+				<div className='flex flex-row  xl:mx-5'>
+					<Link to={`/${slugify(prevImgPath, { lower: true })}`}>
+						<img
+							src={iconBack}
+							alt='previous'
+							className='mr-5 h-8 w-8 cursor-pointer'
+						/>
+					</Link>
+					<Link to={`/${slugify(nextImgPath, { lower: true })}`}>
+						<img src={iconNext} alt='next' className='h-8 w-8 cursor-pointer' />
+					</Link>
+				</div>
 			</div>
 		</div>
 	);
